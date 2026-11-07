@@ -51,6 +51,12 @@ def test_form_scans_and_shows_result(client) -> None:
     assert b"Unexpected prize or lottery claim" in response.data
 
 
+def test_form_accepts_maximum_length_unicode_input(client) -> None:
+    response = client.post("/", data={"message": "😀" * 10_000})
+    assert response.status_code == 200
+    assert b"SAFE" in response.data
+
+
 def test_health_check(client) -> None:
     response = client.get("/health")
     assert response.status_code == 200
