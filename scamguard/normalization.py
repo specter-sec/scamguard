@@ -55,7 +55,8 @@ def normalize_text(text: str) -> str:
     not as a replacement for the original message in user-facing displays.
     """
     normalized = unicodedata.normalize("NFKC", text).casefold()
-    normalized = normalized.replace("\u200b", " ").replace("\ufeff", " ")
+    # Remove invisible characters that can be inserted inside sensitive terms.
+    normalized = normalized.replace("\u200b", "").replace("\ufeff", "")
     for source, target in _URDU_ALIASES:
         normalized = normalized.replace(source, f" {target} ")
     for pattern, replacement in _VARIANTS:
