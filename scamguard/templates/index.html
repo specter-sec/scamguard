@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A transparent, local-first screening tool for Urdu, Roman Urdu, and Hinglish scam messages.">
+  <title>ScamGuard — Message safety check</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="ScamGuard home"><span class="brand-mark">SG</span><span>ScamGuard</span></a>
+      <span class="top-note">Open-source message screening</span>
+    </header>
+
+    <section class="hero" aria-labelledby="page-title">
+      <p class="eyebrow">ROMAN URDU · URDU · HINGLISH</p>
+      <h1 id="page-title">Pause before you trust the message.</h1>
+      <p class="intro">Paste a suspicious SMS, WhatsApp, social, or crypto message. ScamGuard checks for common warning signs and explains what it found.</p>
+    </section>
+
+    <section class="panel" aria-label="Message scanner">
+      <form method="post" action="/">
+        <label for="message">Message to check</label>
+        <textarea id="message" name="message" maxlength="10000" rows="7" placeholder="Example: Mubarak! Aap ka inaam ready hai. OTP bhejein..." required>{{ message }}</textarea>
+        <div class="form-row">
+          <span class="privacy-note">Your text is processed by this app instance; do not paste passwords or private data.</span>
+          <button type="submit">Scan message <span aria-hidden="true">→</span></button>
+        </div>
+      </form>
+      {% if error %}<p class="error" role="alert">{{ error }}</p>{% endif %}
+    </section>
+
+    {% if result %}
+    <section class="result-card level-{{ result.risk_level.name|lower|replace('_', '-') }}" aria-live="polite">
+      <div class="result-heading">
+        <div>
+          <p class="eyebrow">SCAN RESULT</p>
+          <h2>{{ result.risk_level.value }}</h2>
+        </div>
+        <div class="score" aria-label="Risk score {{ result.score }} out of 100"><strong>{{ result.score }}</strong><span>/ 100</span></div>
+      </div>
+      <div class="meter" role="img" aria-label="Risk score {{ result.score }} percent"><span style="width: {{ result.score }}%"></span></div>
+      <h3>Why this was flagged</h3>
+      <ul class="findings">
+        {% for rule in result.triggered_rules %}
+        <li>
+          <span class="finding-dot" aria-hidden="true"></span>
+          <div><strong>{{ rule.title }}</strong><p>{{ rule.explanation }}</p><code>“{{ rule.matched_text }}”</code></div>
+        </li>
+        {% else %}
+        <li><span class="finding-dot muted" aria-hidden="true"></span><div><strong>No configured indicators found</strong><p>{{ result.explanations[0] }}</p></div></li>
+        {% endfor %}
+      </ul>
+      <p class="disclaimer">A low score is not proof a message is safe. Never share an OTP, PIN, password, or full CNIC in response to an unsolicited message.</p>
+    </section>
+    {% endif %}
+
+    <section class="how" aria-label="How it works">
+      <div><span class="step">01</span><h3>Paste</h3><p>Use the message as received, including its links.</p></div>
+      <div><span class="step">02</span><h3>Check</h3><p>Weighted rules look for known scam patterns.</p></div>
+      <div><span class="step">03</span><h3>Decide carefully</h3><p>Review the explanations and verify through official channels.</p></div>
+    </section>
+    <footer><span>ScamGuard · Open source · Rule-based screening</span><a href="https://github.com/specter-sec/scamguard">Project repository</a></footer>
+  </main>
+</body>
+</html>
