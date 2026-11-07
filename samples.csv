@@ -1,0 +1,51 @@
+id,text,label,category
+1,"Mubarak! Aap ka inaam nikla hai, foran claim karein.",SUSPICIOUS,prize
+2,"Apna OTP bhejo warna account block ho jayega.",HIGH RISK,credential phishing
+3,"BISP payment release karne ke liye processing fee bhejein.",SUSPICIOUS,impersonation
+4,"Guaranteed daily profit with this crypto investment. Double your USDT.",SUSPICIOUS,crypto fraud
+5,"Claim your free crypto airdrop and connect wallet now.",SUSPICIOUS,crypto airdrop
+6,"Your account will be suspended. Click this link to verify your PIN.",HIGH RISK,phishing
+7,"Aap ne lucky draw jeeta! Inaam hasil karne ke liye tax jama karein.",SUSPICIOUS,prize fee
+8,"Easypaisa account update ke liye apna CNIC aur OTP share karein.",HIGH RISK,impersonation
+9,"Jazz Cash reward ready hai, bit.ly/claimnow par click karein.",HIGH RISK,short link
+10,"Aaj hi invest karein, risk-free crypto returns guaranteed.",SUSPICIOUS,crypto fraud
+11,"Your SIM will be blocked today unless you confirm your details.",SUSPICIOUS,account threat
+12,"Congratulations, you are a winner. Pay a small fee to release your prize.",HIGH RISK,advance fee
+13,"Ehsaas cash grant claim karne ke liye apna PIN bhejein.",HIGH RISK,impersonation
+14,"Verify your account at https://account-check.top/login immediately.",HIGH RISK,suspicious link
+15,"Wallet sync karein aur free token airdrop claim karein.",SUSPICIOUS,crypto airdrop
+16,"Foran apna password aur verification code reply mein bhejein.",HIGH RISK,credential phishing
+17,"Aap ka account band ho jayega. Link par click kar ke verify karein.",HIGH RISK,account threat
+18,"Lottery reward ke liye pehle 500 rupees processing fee jama karein.",HIGH RISK,prize fee
+19,"BISP cash payment milne wali hai, apna CNIC share karein.",HIGH RISK,impersonation
+20,"Mubarak ho! Aap ka gift claim karne ke liye link open karein.",SUSPICIOUS,prize link
+21,"Aap ke wallet mein inaam jama hai, foran message karein.",SUSPICIOUS,prize
+22,"100% profit crypto scheme, invest today and earn daily.",SUSPICIOUS,crypto fraud
+23,"Click here to claim your reward: https://tinyurl.com/x1y2z3",SUSPICIOUS,short link
+24,"Your bank account is blocked. Send your PIN to restore access.",HIGH RISK,credential phishing
+25,"Easypaisa se 10000 rupees ka inaam mila hai, fee bhejein.",HIGH RISK,impersonation
+26,"Dear customer, your parcel is arriving tomorrow. Thank you.",SAFE,benign
+27,"Kal 5 baje meeting hai, please confirm if you can join.",SAFE,benign
+28,"Your electricity bill is due next week. Please use the official app.",SAFE,benign
+29,"Assalam o alaikum, ghar kab aa rahe ho? Chai ready hai.",SAFE,benign
+30,"I shared the project document in our normal team folder.",SAFE,benign
+31,"Please call me when you reach the office.",SAFE,benign
+32,"The match starts at 8 pm. Pakistan vs New Zealand.",SAFE,benign
+33,"Your appointment is confirmed for Monday at 10 am.",SAFE,benign
+34,"Aaj mausam bohat acha hai, shaam ko walk par chalte hain.",SAFE,benign
+35,"Thanks for helping me with the presentation yesterday.",SAFE,benign
+36,"Your order has shipped and should arrive within three business days.",SAFE,benign
+37,"This is the class reading list for next week's discussion.",SAFE,benign
+38,"I will transfer my share of the dinner bill when we meet.",SAFE,benign
+39,"New photos from the family gathering are in the shared album.",SAFE,benign
+40,"Can you send me the notes from today's lecture?",SAFE,benign
+41,"JazzCash receipt: your payment of Rs 850 to the shop was successful.",SAFE,benign
+42,"The community event registration closes on Friday; see the school noticeboard.",SAFE,benign
+43,"Reminder: bring your CNIC to the in-person appointment at the service center.",SAFE,benign
+44,"Crypto prices are volatile. Do your own research and never invest money you cannot afford to lose.",SAFE,benign
+45,"I received your OTP from the login I just requested; thanks.",SAFE,benign
+46,"The official website is https://www.wikipedia.org for the article we discussed.",SAFE,benign
+47,"مبارک! آپ کا انعام تیار ہے، فوراً دعویٰ کریں۔",SUSPICIOUS,urdu prize
+48,"اپنا او ٹی پی بھیجیں ورنہ اکاؤنٹ بلاک ہو جائے گا۔",HIGH RISK,urdu credential phishing
+49,"السلام علیکم، کل شام ملاقات کے لیے وقت بتا دیں۔",SAFE,benign urdu
+50,"آپ کا بل ادا ہو گیا ہے، شکریہ۔",SAFE,benign urdu
