@@ -8,12 +8,14 @@ from .engine import ScamDetector
 
 LOGGER = logging.getLogger(__name__)
 MAX_MESSAGE_LENGTH = 10_000
+MAX_URLENCODED_MESSAGE_BYTES = MAX_MESSAGE_LENGTH * 12 + 1_024
 
 
 def create_app(detector: ScamDetector | None = None) -> Flask:
     """Create a configured Flask app; dependency injection aids testing."""
     app = Flask(__name__)
-    app.config["MAX_CONTENT_LENGTH"] = 64 * 1024
+    # A four-byte Unicode character can occupy 12 bytes when URL-encoded.
+    app.config["MAX_CONTENT_LENGTH"] = MAX_URLENCODED_MESSAGE_BYTES
     app.extensions["scamguard_detector"] = detector or ScamDetector()
 
     @app.get("/")
