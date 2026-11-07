@@ -51,6 +51,13 @@ def test_credential_and_account_threat_is_high_risk(detector: ScamDetector) -> N
     assert "threat_account_action" in rule_ids
 
 
+def test_zero_width_character_cannot_hide_credential_request(detector: ScamDetector) -> None:
+    result = detector.scan("Apna O\u200bTP bhejo warna account block ho jayega.")
+    rule_ids = {rule.rule_id for rule in result.triggered_rules}
+    assert result.risk_level is RiskLevel.HIGH_RISK
+    assert "credential_request" in rule_ids
+
+
 def test_urdu_script_aliases_are_detected(detector: ScamDetector) -> None:
     result = detector.scan("مبارک! آپ کا انعام، اپنا او ٹی پی بھیجیں")
     rule_ids = {rule.rule_id for rule in result.triggered_rules}
